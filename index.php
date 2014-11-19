@@ -40,7 +40,7 @@
                 <?php if (get_option('wpyou_products_id')) { $productid = get_option('wpyou_products_id'); ?><h2 class="Container_title"><a href="<?php echo get_category_link($productid);?>" title="<?php echo get_cat_name( $productid ); ?>"><?php echo get_cat_name( $productid ); ?></a></h2>
                 <?php query_posts('caller_get_posts=1&showposts=6&cat='.$productid); ?>
 				<?php } else { ?>        	
-        		<h2 class="Container_title"><a href="<?php bloginfo('siteurl');?>/category/products">产品中心</a></h2>
+        		<h2 class="Container_title"><a href="<?php bloginfo('siteurl');?>/category/products">成功案例</a></h2>
                 <?php query_posts('caller_get_posts=1&showposts=6&cat=products'); ?>
 				<?php } ?>        
                 <ul>

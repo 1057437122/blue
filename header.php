@@ -40,8 +40,8 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/jquery.min.js"></script>
-
-
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/wpyou.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/facebox.js"></script>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 </head>
