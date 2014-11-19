@@ -76,6 +76,7 @@
                 <?php } ?>
 
         </div>
+		
         <!-- news end-->
     </div>
 <?php get_footer(); ?>

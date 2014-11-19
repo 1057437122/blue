@@ -43,6 +43,39 @@
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/wpyou.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/js/facebox.js"></script>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
+<?php if(is_home()){ ?>
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slides.jquery.js"></script>
+<script>
+// Slides
+$(document).ready(function(){
+	$(".slides").slides({
+		play:7000,
+		pause:500,
+		slideSpeed:1200,
+		hoverPause:true,
+		animationStart:function(current){
+			$(".caption").animate({
+				bottom:-90
+			},200);
+			if(window.console&&console.log){
+				console.log("animationStart on slide:",current);
+			};
+		},animationComplete:function(current){
+			$(".caption").animate({
+				bottom:0
+			},500);
+			if(window.console&&console.log){
+				console.log("animationComplete on slide:",current);
+			};
+		},slidesLoaded:function(){
+			$(".caption").animate({
+				bottom:0
+			},200);
+		}
+	});
+});
+</script>
+<?php }?>
 <?php wp_head(); ?>
 </head>
 <body>
@@ -102,6 +135,7 @@ if($sliderspost):?>
 		
 	</div><!--slides-->
 </div><!--slider_frame-->
+
 <?php endif; ?>
 <?php }else{ ?>
 <div id="banner">
