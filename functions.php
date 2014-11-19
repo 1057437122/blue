@@ -11,16 +11,42 @@ if ( function_exists('register_sidebars') )
 //First Post Image
 function catch_post_image() {
 	global $post, $posts;
-	$first_img = '';
-	ob_start();
-	ob_end_clean();
-	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-	$first_img = $matches [1] [0];
-	if(empty($first_img)){ //Defines a default image
-  		$site_url = bloginfo('template_url');
-    	$first_img = "$site_url/images/no-thumbnail.jpg";
+	if(has_post_thumbnail()){$url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));}
+	else{
+		
+		// $post_thumbnail=get_the_post_thumbnail($post->ID,'thumbnail');
+		// if($post_thumbnail) return $post_thumbnail;
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		$first_img = $matches [1] [0];
+		if(empty($first_img)){ //Defines a default image
+			$first_img = get_bloginfo("template_url")."/images/no-thumbnail.jpg";
+		}
+		//$ret='<img src="'.get_bloginfo("template_url").$first_img.'" title="'.$post->post_title.'" alt="'.$post->post_title.' />';
+		$url=$first_img;
 	}
-	return $first_img;
+	return $url;
+}
+function catch_post_image1() {
+	if(has_post_thumbnail()){the_post_thumbnail();return 0;}
+	else{
+		global $post, $posts;
+		// $post_thumbnail=get_the_post_thumbnail($post->ID,'thumbnail');
+		// if($post_thumbnail) return $post_thumbnail;
+		$first_img = '';
+		ob_start();
+		ob_end_clean();
+		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		$first_img = $matches [1] [0];
+		if(empty($first_img)){ //Defines a default image
+			$first_img = "/images/no-thumbnail.jpg";
+		}
+		$ret='<img src="'.get_bloginfo("template_url").$first_img.'" title="'.$post->post_title.'" alt="'.$post->post_title.' />';
+		echo $ret;
+		return 1;
+	}
 }
 //Slider Image
 function catch_slider_image() {
