@@ -45,7 +45,7 @@
 				<?php } ?>        
                 <ul>
                  	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                    <li><a href="<?php the_permalink() ?>" target="_blank" title="<?php the_title(); ?>"><img src="<?php echo catch_post_image(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" /></a><span><?php the_title(); ?></span></li>
+                    <li><a href="<?php the_permalink() ?>" target="_blank" title="<?php the_title(); ?>"><img src="<?php echo catch_post_image(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" /></a><span></span></li>
                 <?php endwhile ?>
                 </ul>
                 <?php endif ?>

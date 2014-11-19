@@ -208,11 +208,11 @@ function wpyou_options() {
                 </td>
         	</tr>
             <tr valign="top">
-                <th scope="row"><label>产品中心分类ID<span class="description">(数值)</span></label></th>
+                <th scope="row"><label>主营业务分类ID<span class="description">(数值)</span></label></th>
                 <td>
                     <input class="regular-text" style="width:35em;" type="text" name="wpyou_products_id" value="<?php echo get_option('wpyou_products_id'); ?>" />
                     <br />
-                    <span class="description">设置产品中心分类ID (多个ID间用英文逗号","隔开, 例如: 1,2,3)<br />▪ 如没有产品中心分类, 则无需设置<br />▪ <a title="如何查看分类ID" href="http://www.wpyou.com/how-to-find-the-category-id.html" target="_blank">如何获取分类ID</a></span>
+                    <span class="description">设置主营业务分类ID (多个ID间用英文逗号","隔开, 例如: 1,2,3)<br />▪ 如没有主营业务分类, 则无需设置<br />▪ <a title="如何查看分类ID" href="http://www.wpyou.com/how-to-find-the-category-id.html" target="_blank">如何获取分类ID</a></span>
                 </td>
         	</tr>
             <tr valign="top">
