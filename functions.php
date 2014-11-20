@@ -163,6 +163,8 @@ function register_mysettings() {
 	register_setting( 'wpyou-settings', 'wpyou_hot_products');
 	register_setting( 'wpyou-settings', 'wpyou_aboutus');
 	register_setting( 'wpyou-settings', 'wpyou_aboutus_url');
+	register_setting( 'wpyou-settings', 'leez_left_index');
+	register_setting( 'wpyou-settings', 'leez_right_index');
 	register_setting( 'wpyou-settings', 'wpyou_footer');
 }
 function wpyou_options() {
@@ -191,22 +193,7 @@ function wpyou_options() {
                     <span class="description">设置是否开启自定义菜单功能(WordPress 3.0以上版本支持) <br />▪ 启用后，您需要在<a href='nav-menus.php'>【外观 - 菜单(导航菜单)】里设置菜单内容</a>)<br />▪ <a href='http://www.wpyou.com/wordpress-3-0-use-navigation-menu-operation.html' target='_blank'>如何使用自定义菜单</a></span>
                 </td>
             </tr>
-            <tr valign="top">
-                <th scope="row"><label>新闻分类ID<span class="description">(数值)</span></label></th>
-                <td>
-                    <input class="regular-text" style="width:35em;" type="text" name="wpyou_news_id" value="<?php echo get_option('wpyou_news_id'); ?>" />
-                    <br />
-                    <span class="description">设置新闻分类ID (多个ID间用英文逗号","隔开, 例如: 1,2,3)<br />▪ 如没有新闻分类, 则无需设置<br />▪ <a title="如何查看分类ID" href="http://www.wpyou.com/how-to-find-the-category-id.html" target="_blank">如何获取分类ID</a></span>
-                </td>
-        	</tr>
-            <tr valign="top">
-                <th scope="row"><label>解决方案分类ID<span class="description">(数值)</span></label></th>
-                <td>
-                    <input class="regular-text" style="width:35em;" type="text" name="wpyou_solution_id" value="<?php echo get_option('wpyou_solution_id'); ?>" />
-                    <br />
-                    <span class="description">设置解决方案分类ID (多个ID间用英文逗号","隔开, 例如: 1,2,3)<br />▪ 如没有解决方案分类, 则无需设置<br />▪ <a title="如何查看分类ID" href="http://www.wpyou.com/how-to-find-the-category-id.html" target="_blank">如何获取分类ID</a></span>
-                </td>
-        	</tr>
+            
             <tr valign="top">
                 <th scope="row"><label>主营业务分类ID<span class="description">(数值)</span></label></th>
                 <td>
@@ -223,6 +210,25 @@ function wpyou_options() {
                     <span class="description">合作伙伴分类ID (多个ID间用英文逗号","隔开, 例如: 1,2,3)<br />▪ 如没有合作伙伴分类, 则无需设置<br />▪ <a title="如何查看分类ID" href="http://www.wpyou.com/how-to-find-the-category-id.html" target="_blank">如何获取分类ID</a></span>
                 </td>
         	</tr>
+			<!-- show in the index page container -->
+			<tr valign="top">
+				<th scope="row"><label><?php _e('首页左侧展示栏目') ;?></label></th>
+				<td>
+					<input class="regular-text" style="width:35em;" type="text" name="leez_left_index" value="<?php echo get_option('leez_left_index'); ?>" />
+                    <br />
+					<span class="description"><?php _e('设置首页左侧栏目，多个栏目请用英文状态下逗号“,”隔开'); ?></span>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><label><?php _e('首页右侧展示栏目') ;?></label></th>
+				<td>
+					<input class="regular-text" style="width:35em;" type="text" name="leez_right_index" value="<?php echo get_option('leez_right_index'); ?>" />
+                    <br />
+					<span class="description"><?php _e('设置首页右侧栏目，多个栏目请用英文状态下逗号“,”隔开'); ?></span>
+				</td>
+			</tr>
+			
+			<!-- index container -->
             <tr valign="top" class="alt">
                 <th scope="row"><label><strong>内页边栏位置</strong><span class="description"></span></label></th>
                 <td>
@@ -278,6 +284,7 @@ function wpyou_options() {
                     <span class="description">设置首页【企业简介】栏目 的链接地址</span>
                 </td>
         	</tr>
+			
             <tr valign="top">
                 <th scope="row"><label><span class="description"></span></label></th>
                 <td>
