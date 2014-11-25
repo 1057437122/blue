@@ -38,8 +38,11 @@
 <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<?php if(is_mobile() && $_GET['debuggg']==1): ?>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/mobile.css" type="text/css" media="screen" />
+<?php else: ?>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-
+<?php endif; ?>
 <?php wp_head(); ?>
 </head>
 <body>
@@ -50,11 +53,13 @@
 	<h1>
     	 <a href="<?php bloginfo('siteurl');?>/" title="<?php bloginfo('description'); ?>"><img title="<?php bloginfo('name'); ?>"  src="<?php bloginfo('template_directory');?>/images/logo_blue.png" alt="<?php bloginfo('name'); ?>"/></a>
     </h1>
+	<?php if(!is_mobile()){ ?>
 	<div id="H_link">
 		<a href="#" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('<?php bloginfo('siteurl');?>/');" title="设为首页">设为首页</a>
 		|
 		<a  href="#" onclick="javascript:window.external.AddFavorite('<?php bloginfo('siteurl');?>/','<?php bloginfo('name'); ?>');" title="加入收藏">加入收藏</a>
 	</div>
+	<?php } ?>
 	<div class="headr">
     	<div class="blank25"></div>
 		<div class="clearfix"> </div>
@@ -75,7 +80,7 @@
     </ul>
      <?php } ?>
 </div>
-<div class="blank8"></div>
+<div class="blank8 clearfix"></div>
 <?php if(is_home()){ 
 $sliderspost=get_posts('meta_key=slider&numberposts=10');
 if($sliderspost):?>

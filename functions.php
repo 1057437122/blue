@@ -381,4 +381,5 @@ function cut_str($src_str,$cut_length,$sign=0)//sign to show "..." in the descri
     }
     return $return_str;
 }
+include_once('inc/theme-mobile.php');
 ?>
